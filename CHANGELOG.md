@@ -1,0 +1,18 @@
+# Change Log for Podcast Pro Child Theme
+All notable changes to this project will be documented in this file.
+
+## Unreleased
+
+- Added Sass.
+
+## 1.0.1 - 2015-02-05
+
+- Fixed text domain loading for language files.
+- Fixed backstretch image overflow for RTL.
+- Changed search form for improved accessibility.
+- Added British English translation.
+- Added German translation.
+
+## 1.0.0 - 2015-01-16
+
+- Initial release

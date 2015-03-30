@@ -1,0 +1,76 @@
+/* ##
+Color Options
+If you've chosen your favorite color scheme, you can delete the others
+---------------------------------------------------------------------------------------------------- */
+
+/* ## Green
+--------------------------------------------- */
+
+.podcast-pro-green .home-gallery .fa,
+.podcast-pro-green a,
+.podcast-pro-green .entry-content a {
+	color: $green;
+}
+
+.podcast-pro-green .sticky.entry {
+	border-top-color: $green;
+}
+
+.podcast-pro-green .call-to-action-bar .button,
+.podcast-pro-green .button,
+.podcast-pro-green a.button,
+.podcast-pro-green input[type="submit"] {
+	background: $green;
+	border: 1px solid $white;
+	color: $white;
+}
+
+.podcast-pro-green .call-to-action-bar .button:hover,
+.podcast-pro-green .button:hover,
+.podcast-pro-green .entry-content a.button:hover,
+.podcast-pro-green input[type="submit"]:hover {
+	background: $white;
+	border: 1px solid $green;
+	color: $green;
+}
+
+.podcast-pro-green .utility-bar,
+.podcast-pro-green .site-footer {
+	background-color: rgba($green, 0.9);
+}
+
+/* ## Red
+--------------------------------------------- */
+
+.podcast-pro-red .home-gallery .fa,
+.podcast-pro-red a,
+.podcast-pro-red .entry-content a {
+	color: $red;
+}
+
+.podcast-pro-red .sticky.entry {
+	border-top-color: $red;
+}
+
+.podcast-pro-red .call-to-action-bar .button,
+.podcast-pro-red .button,
+.podcast-pro-red a.button,
+.podcast-pro-red input[type="submit"] {
+	background: $red;
+	border: 1px solid $white;
+	color: $white;
+}
+
+.podcast-pro-red .call-to-action-bar .button:hover,
+.podcast-pro-red .button:hover,
+.podcast-pro-red .entry-content a.button:hover,
+.podcast-pro-red input[type="submit"]:hover {
+	background: $white;
+	border: 1px solid $red;
+	color: $red;
+}
+
+.podcast-pro-red .utility-bar,
+.podcast-pro-red .site-footer {
+	background-color: rgba($red, 0.9);
+}
