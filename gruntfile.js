@@ -49,69 +49,6 @@ module.exports = function(grunt) {
 			}
 		},
 		/**
-		 * Makepot
-		 * https://github.com/blazersix/grunt-wp-i18n/
-		 */
-		makepot: {
-			theme: {
-				options: {
-					domainPath: '/languages',
-					type: 'wp-theme',
-		            exclude: [
-		                'dist/.*'
-		            ]
-				}
-			}
-		},
-		/**
-		 * Addtextdomain
-		 * https://github.com/blazersix/grunt-wp-i18n/
-		 */
-		addtextdomain: {
-			options: {
-				textdomain: 'podcast-pro'
-			},
-			update_all_domains: {
-				options: {
-					updateDomains: true
-				}
-			}
-		},
-		/**
-		 * Po to Mo
-		 * https://github.com/axisthemes/grunt-potomo
-		 */
-		potomo: {
-			dist: {
-				files: [
-					{
-						expand: true,
-						cwd: 'languages',
-						src: ['*.po'],
-						dest: 'languages',
-						ext: '.mo',
-						nonull: true
-					}
-				]
-			}
-		},
-		/**
-		 * CSSJanus
-		 */
-		cssjanus: {
-			theme: {
-				options: {
-					swapLtrRtlInUrl: true
-				},
-				files: [
-					{
-						src: 'style.css',
-						dest: 'style-rtl.css'
-					}
-				]
-			}
-		},
-		/**
 		 * Watch
 		 */
 		watch: {
@@ -124,60 +61,9 @@ module.exports = function(grunt) {
 				tasks: [
 					'sass'
 				]
-			},
-			cssjanus: {
-				files: [
-					'style.css'
-				],
-				tasks: [
-					'cssjanus'
-				]
-			}
-		},
-		// https://github.com/gruntjs/grunt-contrib-compress
-		compress: {
-			standard: {
-				options: {
-					archive: 'dist/<%= pkg.name %>-<%= pkg.version %>.zip'
-				},
-				files: [
-					{
-						expand: true,
-						cwd: '',
-						src: [ // Take this...
-							'**',
-							'!gruntfile.js',
-							'!package.json',
-							'!node_modules/**',
-							'!.sass-cache/**',
-							'!dist/**',
-							'!*.sublime*',
-							'!.DS_Store'
-						],
-						dest: '<%= pkg.name %>' // ...put it into this, then zip that up as ^^^
-					}
-				]
-			},
-			dev: {
-				options: {
-					archive: 'dist/<%= pkg.name %>-developer-<%= pkg.version %>.zip'
-				},
-				files: [
-					{
-						expand: true,
-						src: [
-							'**',
-							'!node_modules/**',
-							'!.sass-cache/**',
-							'!dist/**',
-							'!*.sublime*',
-							'!.DS_Store'
-						], // Take this...
-						dest: '<%= pkg.name %>' // ...put it into this, then zip that up as ^^^
-					}
-				]
 			}
 		}
+
 	});
 
 	/**
@@ -186,7 +72,6 @@ module.exports = function(grunt) {
 	 */
 	grunt.registerTask('default', [
 		'bowercopy',
-		'cssjanus',
 		'sass',
 		'watch'
 	]);

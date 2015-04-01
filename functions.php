@@ -9,10 +9,6 @@
  * @license      GPL-2.0+
  */
 
-// Load internationalization components
-// English users do not need to load the text domain and can comment out or remove
-load_child_theme_textdomain( 'podcast-pro', get_stylesheet_directory() . '/languages' );
-
 // This file loads the Google fonts used in this theme
 require get_stylesheet_directory() . '/includes/google-fonts.php';
 
@@ -46,38 +42,17 @@ function podcast_pro_setup() {
 	// Add support for three footer widget areas
 	add_theme_support( 'genesis-footer-widgets', 1 );
 
-	// Add support for additional color style options
-	add_theme_support(
-		'genesis-style-selector',
-		array(
-			'podcast-pro-purple' =>	__( 'Purple', 'podcast-pro' ),
-			'podcast-pro-green'  =>	__( 'Green', 'podcast-pro' ),
-			'podcast-pro-red'    =>	__( 'Red', 'podcast-pro' ),
-		)
-	);
-
 	// Add support for structural wraps (all default Genesis wraps unless noted)
 	add_theme_support(
 		'genesis-structural-wraps',
 		array(
 			'footer',
 			'footer-widgets',
-			'footernav', // Custom
-			'menu-footer', // Custom
 			'header',
 			'home-optin', // Custom
 			'nav',
 			'site-inner',
 			'site-tagline',
-		)
-	);
-
-	// Add support for two navigation areas (theme doesn't use secondary navigation)
-	add_theme_support(
-		'genesis-menus',
-		array(
-			'primary'   => __( 'Primary Navigation Menu', 'podcast-pro' ),
-			'footer'    => __( 'Footer Navigation Menu', 'podcast-pro' ),
 		)
 	);
 
@@ -111,25 +86,12 @@ function podcast_pro_setup() {
 	// Add WordPress archive pagination (accessibility)
 	add_action( 'genesis_after_endwhile', 'podcast_pro_post_pagination' );
 
-	// Load accesibility components if the Genesis Accessible plugin is not active
-	if ( ! podcast_pro_genesis_accessible_is_active() ) {
-
-		// Load skip links (accessibility)
-		include get_stylesheet_directory() . '/includes/skip-links.php';
-	}
+	// Load skip links (accessibility)
+	include get_stylesheet_directory() . '/includes/skip-links.php';
 
 	// Apply search form enhancements (accessibility)
 	add_filter( 'get_search_form', 'podcast_pro_get_search_form', 25 );
 
-	// Load files in admin
-	if ( is_admin() ) {
-
-		// Add suggested plugins nag
-		include get_stylesheet_directory() . '/includes/suggested-plugins.php';
-
-		// Add theme license (don't remove, unless you don't want theme support)
-		include get_stylesheet_directory() . '/includes/theme-license.php';
-	}
 }
 
 /**
@@ -195,9 +157,6 @@ function podcast_pro_author_box_gravatar_size( $size ) {
 
 // Add theme widget areas
 include get_stylesheet_directory() . '/includes/widget-areas.php';
-
-// Add footer navigation components
-include get_stylesheet_directory() . '/includes/footer-nav.php';
 
 // Add scripts to enqueue
 include get_stylesheet_directory() . '/includes/enqueue-assets.php';

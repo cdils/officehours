@@ -70,21 +70,6 @@ function podcast_pro_post_pagination() {
 	}
 }
 
-/**
- * Check whether Genesis Accessible plugin is active.
- *
- * If the Genesis Accessible plugin is in use, disable certain accessibility
- * features in Podcast Pro and default to plugin settings to avoid unneccessary
- * scripts from loading.
- *
- * @since  1.0.0
- *
- * @return boolean
- */
-function podcast_pro_genesis_accessible_is_active() {
-   return function_exists( 'genwpacc_genesis_init' );
-}
-
 add_action( 'init', 'create_post_type' );
 function create_post_type() {
   register_post_type( 'podcast',
