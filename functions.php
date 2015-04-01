@@ -44,7 +44,7 @@ function podcast_pro_setup() {
 	add_theme_support( 'custom-background', array( 'wp-head-callback' => '__return_false' ) );
 
 	// Add support for three footer widget areas
-	add_theme_support( 'genesis-footer-widgets', 3 );
+	add_theme_support( 'genesis-footer-widgets', 1 );
 
 	// Add support for additional color style options
 	add_theme_support(
@@ -178,7 +178,7 @@ add_filter( 'genesis_footer_creds_text', 'podcast_pro_footer_creds' );
  */
 function podcast_pro_footer_creds( $creds ) {
 
-	return '[footer_copyright first="2015"] &middot; <a href="https://store.carriedils.com/downloads/podcast-pro/?utm_source=Utility%20Pro%20Footer%20Credits&utm_medium=Distributed%20Theme&utm_campaign=Utility%20Pro%20Theme">Podcast Pro</a>.';
+	return '[footer_copyright first="2015 CWD Holdings LLC"]<br /><a href="http://www.carriedils.com/rainmaker/">Powered by Rainmaker</a>';
 }
 
 add_filter( 'genesis_author_box_gravatar_size', 'podcast_pro_author_box_gravatar_size' );
@@ -204,3 +204,6 @@ include get_stylesheet_directory() . '/includes/enqueue-assets.php';
 
 // Miscellaenous functions used in theme configuration
 include get_stylesheet_directory() . '/includes/theme-config.php';
+
+// Miscellaenous functions used for podcasts
+include get_stylesheet_directory() . '/includes/podcast-helpers.php';

@@ -106,7 +106,7 @@ Content Area
 
 .entry-meta {
 	color: lighten($black, 33);
-	font-size: $secondary-font-size;
+	font-size: $post-meta;
 }
 
 .entry-header .entry-meta {
@@ -169,14 +169,28 @@ Content Area
 .episode {
 	color: $medium-grey;
 	display: block;
-	font-size: $gallery-caption-font-size;
+	font-size: $post-meta;
 	font-weight: 400;
 	letter-spacing: 1px;
 	padding-top: 18px;
 	text-transform: uppercase;
 }
 
-.episode-detail {
+.episode-guest {
+	font-size: $post-meta;
+}
+
+.list-podcasts .entry-meta,
+.list-podcasts .episode-title {
+	margin-bottom: 0;
+}
+
+.podcast-top {
+	border: 1px solid $light-grey;
+	display: block;
+	margin-bottom: 20px;
+	overflow: hidden;
+	position: relative;
 }
 
 /* Featured Image

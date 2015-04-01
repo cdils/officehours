@@ -93,6 +93,7 @@ $form-font-family: $base-font-family;
 //------------------------------------------------------------------------------
 $gallery-caption-font-size: $secondary-font-size - 2;
 $wp-caption-font-size: $secondary-font-size - 2;
+$post-meta: $secondary-font-size - 2;
 // Footer Font Properties
 //------------------------------------------------------------------------------
-$footer-font-size: $secondary-font-size;
+$footer-font-size: $secondary-font-size - 2;

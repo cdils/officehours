@@ -192,9 +192,11 @@ Widgets
 
 .call-to-action-bar {
 	background: $light-grey;
-	clear: both;
 	color: $medium-grey;
 	padding: 20px 0;
+}
+
+.call-to-action-bar .wrap {
 	text-align: center;
 }
 
@@ -202,6 +204,7 @@ Widgets
 	color: $medium-grey;
 	font-size: $widget-title-size;
 	font-weight: 400;
+	text-align: center;
 }
 
 
@@ -252,34 +255,17 @@ Footer Widgets
 .footer-widgets {
 	background: lighten($black, 11);
 	color: $white;
+	font-size: $box-title-size;
 	padding: 40px 0;
 }
 
-.footer-widgets-1,
-.footer-widgets-2,
-.footer-widgets-3 {
-	float: left;
-	margin: 0;
-	width: 100%;
-
-	@include media($small-screen-up) {
-		width: 30%;
-	}
-}
-
-.footer-widgets-1,
-.footer-widgets-2 {
-	@include media($small-screen-up) {
-		margin-right: 5%;
-	}
+.footer-widgets-1 {
+	@include span-columns(12);
+	text-align: center
 }
 
 .footer-widgets a {
 	color: $white;
-}
-
-.footer-widgets a:hover {
-	color: lighten($black, 79);
 }
 
 .footer-widgets .widget {

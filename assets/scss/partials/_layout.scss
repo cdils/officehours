@@ -51,7 +51,7 @@ Sidebar
 
 .sidebar {
 	font-size: $base-font-size;
-	padding: 0 40px;
+	padding: 0 10px;
 }
 
 .sidebar p:last-child,
@@ -66,9 +66,8 @@ Sidebar
 }
 
 .sidebar .widget {
-	background: $white;
 	margin-bottom: 40px;
-	padding: 40px;
+	padding: 20px;
 }
 
 .sidebar .widget-wrap {

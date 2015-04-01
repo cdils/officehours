@@ -56,12 +56,9 @@ function podcast_pro_homepage_setup() {
 		}
 	}
 
-	// Full width layout
-	//add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
-
-	// Remove standard loop and replace with loop showing Posts, not Page content.
+	// Remove standard loop and replace with loop showing podcasts, not Page content.
 	remove_action( 'genesis_loop', 'genesis_do_loop' );
-	add_action ( 'genesis_loop', 'podcast_pro_front_loop' );
+	add_action ( 'genesis_loop', 'podcast_pro_archive_loop' );
 }
 
 // Display content for the "Home Welcome" section
@@ -94,7 +91,26 @@ function podcast_pro_add_home_announce() {
 		echo '</div>';
 
 		// Bring in episode info
-		echo '<div class="one-third first">';
+		echo '<div class="two-thirds">';
+
+			global $post;
+			$args = array(
+				'posts_per_page'   => 1,
+				'orderby'          => 'post_date',
+				'order'            => 'DESC',
+				'post_type'        => 'podcast',
+			);
+			$podcasts = get_posts( $args );
+
+				foreach ( $podcasts as $post ) {
+					setup_postdata( $post );
+
+					echo '<div class="announce-podcast-date">' . podcast_pro_get_the_air_date() . ' at ' . podcast_pro_get_the_air_time() . '</div>';
+					echo '<p class="announce-podcast-title">' . get_the_title() . '</p>';
+
+				}
+
+			wp_reset_postdata();
 
 		echo '</div>';
 
@@ -125,10 +141,8 @@ function podcast_pro_add_home_optin() {
 	);
 }
 
-
-
 /** Display the "podcasts" section. */
-function podcast_pro_front_loop() {
+function podcast_pro_archive_loop() {
 	global $post;
 	$args = array(
 		'posts_per_page'   => 6,
@@ -156,9 +170,13 @@ function podcast_pro_front_loop() {
 					// Print Episode Title & Meta
 					echo '<div class="five-sixths episode-detail">';
 					echo '<header class="entry-header">';
-						printf( '<h4 class="coupon-title"><a href="%s" title="%s">%s</a></h4>', get_permalink(), the_title_attribute( 'echo=0' ), get_the_title() );
+						printf( '<h4 class="episode-title"><a href="%s" title="%s">%s</a></h4>', get_permalink(), the_title_attribute( 'echo=0' ), get_the_title() );
 					echo '</header>';
 
+					echo '<p class="entry-meta">';
+						echo podcast_pro_podcast_date_info();
+						echo podcast_pro_get_guests();
+					echo '</p>';
 					echo '</div>';
 
 			 	echo '</article>';
@@ -167,6 +185,5 @@ function podcast_pro_front_loop() {
 	echo '</div>';
 	wp_reset_postdata();
 }
-
 
 genesis();

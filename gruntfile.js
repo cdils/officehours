@@ -27,8 +27,8 @@ module.exports = function(grunt) {
 					destPrefix: 'assets/scss/vendor'
 				},
 				files: {
-					'bourbon': 'bourbon',
-					'neat': 'neat'
+					bourbon: 'bourbon/app/assets/stylesheets',
+					neat: 'neat/app/assets/stylesheets'
 				}
 			}
 		},

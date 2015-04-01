@@ -572,7 +572,8 @@ input[type="submit"] {
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: 400;
   letter-spacing: 1px;
   padding: 12px 20px;
   text-transform: uppercase;
@@ -591,6 +592,10 @@ input:focus[type="submit"],
 
 .button {
   display: inline-block;
+}
+
+.sidebar a.button {
+  font-size: 14px;
 }
 
 .button:hover,
@@ -788,7 +793,7 @@ Sidebar
 ---------------------------------------------------------------------------------------------------- */
 .sidebar {
   font-size: 18px;
-  padding: 0 40px;
+  padding: 0 10px;
 }
 
 .sidebar p:last-child,
@@ -803,9 +808,8 @@ Sidebar
 }
 
 .sidebar .widget {
-  background: #fff;
   margin-bottom: 40px;
-  padding: 40px;
+  padding: 20px;
 }
 
 .sidebar .widget-wrap {
@@ -1403,9 +1407,11 @@ Widgets
 --------------------------------------------- */
 .call-to-action-bar {
   background: #f2f6f8;
-  clear: both;
   color: #7d7d7d;
   padding: 20px 0;
+}
+
+.call-to-action-bar .wrap {
   text-align: center;
 }
 
@@ -1413,6 +1419,7 @@ Widgets
   color: #7d7d7d;
   font-size: 18px;
   font-weight: 400;
+  text-align: center;
 }
 
 /* User Profile
@@ -1458,37 +1465,23 @@ Footer Widgets
 .footer-widgets {
   background: #1c1c1c;
   color: #fff;
+  font-size: 25px;
   padding: 40px 0;
 }
 
-.footer-widgets-1,
-.footer-widgets-2,
-.footer-widgets-3 {
+.footer-widgets-1 {
   float: left;
-  margin: 0;
+  display: block;
+  margin-right: 2.35765%;
   width: 100%;
+  text-align: center;
 }
-@media screen and (min-width: 768px) {
-  .footer-widgets-1,
-  .footer-widgets-2,
-  .footer-widgets-3 {
-    width: 30%;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .footer-widgets-1,
-  .footer-widgets-2 {
-    margin-right: 5%;
-  }
+.footer-widgets-1:last-child {
+  margin-right: 0;
 }
 
 .footer-widgets a {
   color: #fff;
-}
-
-.footer-widgets a:hover {
-  color: #c9c9c9;
 }
 
 .footer-widgets .widget {
@@ -1521,10 +1514,6 @@ Plugins
 ---------------------------------------------------------------------------------------------------- */
 /* ## Better Font Awesome
 --------------------------------------------- */
-a > .fa {
-  display: block;
-}
-
 li a .fa {
   display: inline-block;
 }
@@ -2069,7 +2058,7 @@ Content Area
 --------------------------------------------- */
 .entry-meta {
   color: #545454;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .entry-header .entry-meta {
@@ -2135,6 +2124,23 @@ Content Area
   letter-spacing: 1px;
   padding-top: 18px;
   text-transform: uppercase;
+}
+
+.episode-guest {
+  font-size: 14px;
+}
+
+.list-podcasts .entry-meta,
+.list-podcasts .episode-title {
+  margin-bottom: 0;
+}
+
+.podcast-top {
+  border: 1px solid #f2f6f8;
+  display: block;
+  margin-bottom: 20px;
+  overflow: hidden;
+  position: relative;
 }
 
 /* Featured Image
@@ -2238,11 +2244,8 @@ p.form-submit,
 Site Footer
 ---------------------------------------------------------------------------------------------------- */
 .site-footer {
-  background-color: rgba(44, 101, 138, 0.9);
-  color: #fff;
-  font-size: 16px;
+  font-size: 14px;
   padding: 40px 0;
-  text-align: center;
 }
 
 .site-footer a {

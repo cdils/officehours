@@ -190,7 +190,8 @@ input[type="submit"] {
 	border-radius: $border-radius;
 	color: $white;
 	cursor: pointer;
-	font-size: $base-font-size;
+	font-size: $secondary-font-size;
+	font-weight: 400;
 	letter-spacing: 1px;
 	padding: 12px 20px;
 	text-transform: uppercase;
@@ -209,6 +210,10 @@ input:focus[type="submit"],
 
 .button {
 	display: inline-block;
+}
+
+.sidebar a.button {
+	font-size: $tertiary-font-size;
 }
 
 .button:hover,
