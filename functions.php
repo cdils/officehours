@@ -72,13 +72,10 @@ function podcast_pro_setup() {
 	podcast_pro_register_widget_areas();
 
 	// Add Utility Bar above header
-	add_action( 'genesis_before_header', 'podcast_pro_add_bar' );
+	add_action( 'genesis_after_header', 'podcast_pro_add_bar' );
 
 	// Add featured image above posts
 	add_filter( 'the_content', 'podcast_pro_featured_image' );
-
-	// Add a navigation area above the site footer
-	add_action( 'genesis_before_footer', 'podcast_pro_do_footer_nav' );
 
 	// Remove Genesis archive pagination (Genesis pagination settings still apply)
 	remove_action( 'genesis_after_endwhile', 'genesis_posts_nav' );
@@ -101,10 +98,13 @@ function podcast_pro_setup() {
  */
 function podcast_pro_add_bar() {
 
-	genesis_widget_area( 'utility-bar', array(
-		'before' => '<div class="utility-bar"><div class="wrap">',
-		'after'  => '</div></div>',
-	) );
+	if ( ! is_front_page() ) {
+
+		genesis_widget_area( 'utility-bar', array(
+			'before' => '<div class="utility-bar"><div class="wrap">',
+			'after'  => '</div></div>',
+		) );
+	}
 }
 
 /**

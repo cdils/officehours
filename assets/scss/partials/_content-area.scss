@@ -11,15 +11,16 @@ Content Area
 
 .entry-title a{
 	border: 0;
-	color: $medium-grey;
+	color: $blue;
 	font-weight: 400;
 }
 
 .entry-title a:hover {
-	color: lighten($black, 33);
+	color: $medium-grey;
 }
 
 .widgettitle {
+	font-size: $base-font-size;
 	letter-spacing: 1px;
 	margin: 10px 0 24px;
 	text-transform: uppercase;
@@ -27,11 +28,9 @@ Content Area
 
 .sidebar .widgettitle a {
 	border: 0;
-	color: lighten($black, 11);
 }
 
 .archive-title {
-	color: lighten($black, 11);
 	margin-bottom: 24px;
 }
 
@@ -48,11 +47,11 @@ Content Area
 }
 
 .entry-content a {
-	color: $blue;
+	color: $red;
 }
 
 .entry-content a:hover {
-	color: lighten($black, 11);
+	color: $blue;
 }
 
 .entry-content .attachment a,
@@ -176,6 +175,10 @@ Content Area
 	text-transform: uppercase;
 }
 
+.episode-detail {
+	padding-top: 7px;
+}
+
 .episode-guest {
 	font-size: $post-meta;
 }
@@ -186,11 +189,25 @@ Content Area
 }
 
 .podcast-top {
-	border: 1px solid $light-grey;
+	background: $light-grey;
+	border: 1px solid $medium-grey;
 	display: block;
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 	overflow: hidden;
+	padding: 10px;
 	position: relative;
+}
+
+.content-box-green,
+.content-box-blue,
+.sponsor-box {
+	background-color: $light-blue;
+	padding: 40px;
+}
+
+.transcript-box {
+	background-color: $light-grey;
+	padding: 40px;
 }
 
 /* Featured Image

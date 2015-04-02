@@ -124,7 +124,7 @@ Site Navigation
 	display: none;
 	position: relative;
 
-	@include media($medium-screen-up) {
+	@include media($small-screen-up) {
 		display: inline-block;
 	}
 }
@@ -140,8 +140,8 @@ Site Navigation
 	background-color: transparent;
 	border: 0;
 
-	@include media($medium-screen-up) {
-		display: block;
+	@include media($small-screen-up) {
+		display: none;
 		visibility: hidden;
 	}
 }

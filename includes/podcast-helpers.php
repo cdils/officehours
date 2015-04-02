@@ -93,3 +93,46 @@ function podcast_pro_get_guests() {
 
 	return $podcast_guests;
 }
+
+/**
+ * Custom featured image for the podcast entries.
+ *
+ * @param  array $classes
+ * @since  1.0.0
+ */
+function podcast_pro_podcast_image() {
+
+	// Display the promo image if we're not live.
+	if ( ! podcast_pro_is_show_live() ) {
+		podcast_pro_the_promo_image();
+		return;
+	}
+
+	// Get the video thumbnail.
+	$video_id = esc_attr( genesis_get_custom_field( 'youtube_id' ) );
+	$video_thumbnail = '<img src="http://img.youtube.com/vi/' . $video_id . '/0.jpg" />';
+
+	// Output the featured image.
+	printf( '<a href="%s" class="featured-image" title="%s">%s</a>', get_permalink(), the_title_attribute( 'echo=0' ), $video_thumbnail );
+}
+
+/**
+ * Displays a promo image if one exists.
+ *
+ * @uses Advanced Custom Fields
+ * @since 2.0.0
+ */
+function podcast_pro_the_promo_image() {
+	// Do nothing if we have no promo image.
+	if ( ! has_post_thumbnail() ) {
+		return;
+	}
+
+	// Get the promo image.
+	$image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'feature' );
+	// Set the image title to the post title.
+	$title = the_title_attribute( 'echo=0' );
+
+	// Output the promo image.
+	printf( '<a href="%s" class="featured-image"><img title="%s" alt="%s" src="%s" /></a>', get_permalink(), $title, $title, $image[0] );
+}

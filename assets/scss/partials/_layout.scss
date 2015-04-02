@@ -12,6 +12,7 @@ Structure and Layout
 	word-wrap: break-word;
 
 	@include media($medium-screen-up) {
+		padding: 0;
 		max-width: $wrap-max-width-medium;
 	}
 
@@ -23,7 +24,7 @@ Structure and Layout
 
 .site-inner {
 	background: $white;
-	padding-top: 40px;
+	padding-top: 60px;
 }
 
 .utility-landing .site-container {
@@ -50,8 +51,8 @@ Sidebar
 ---------------------------------------------------------------------------------------------------- */
 
 .sidebar {
-	font-size: $base-font-size;
-	padding: 0 10px;
+	font-size: $secondary-font-size;
+	padding-left: 10px;
 }
 
 .sidebar p:last-child,
@@ -68,10 +69,21 @@ Sidebar
 .sidebar .widget {
 	margin-bottom: 40px;
 	padding: 20px;
+	text-align: center;
+
+	@include media($smallest-screen) {
+		text-align: left;
+
+		&:first-of-type {
+			padding-top: 0;
+			text-align: center;
+		}
+
+	}
 }
 
-.sidebar .widget-wrap {
-	margin-left: 4px;
+.sidebar .widget_text {
+	background: $light-blue;
 }
 
 .sidebar .search-form input[type="search"] {

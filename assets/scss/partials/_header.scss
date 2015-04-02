@@ -18,7 +18,7 @@ Site Header
 
 	@include media($small-screen-up) {
 		text-align: left;
-		width: 40%;
+		@include span-columns(5);
 	}
 }
 
@@ -61,14 +61,17 @@ Site Header
 /* Logo, hide text */
 
 .header-image .site-title > a {
-	background: url(images/logo.jpg) no-repeat center;
+	background-position: center;
+	background-repeat: no-repeat;
 	float: left;
 	min-height: 95px;
 	width: 100%;
 
 	@include media($small-screen-up) {
-		background: url(images/logo.jpg) no-repeat left;
+		background-position: left;
 	}
+
+	@include retina-image(images/logo, 238px 95px);
 }
 
 /* Header Right Widget Area
@@ -83,7 +86,7 @@ Site Header
   		float: right;
   		padding-top: 20px;
   		text-align: right;
-  		width: 60%;
+  		@include span-columns(7);
   	}
 }
 

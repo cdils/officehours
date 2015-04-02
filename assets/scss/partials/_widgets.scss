@@ -6,46 +6,17 @@ Widgets
 	margin-bottom: 0;
 }
 
-/* Utility Bar
---------------------------------------------- */
-
-.utility-bar {
-	background-color: rgba($blue, 0.9);
-	border-bottom: 1px solid lighten($black, 85);
-	color: $white;
-	font-size: $secondary-font-size;
-	margin: 0 auto;
-	padding: 10px 0;
-	text-align: center;
-	width: 100%;
-}
-
-.utility-bar a {
-	color: $white;
-}
-
-.utility-bar a:hover {
-	border-bottom: 0;
-}
-
-.utility-bar p,
-.utility-bar .widgettitle {
-	color: $white;
-	margin: 0;
-}
-
-.utility-bar .search-form input[type="search"] {
-	margin: 0;
-	padding: 10px 0;
-}
-
 /* Home Welcome
 --------------------------------------------- */
 
 .home-welcome {
 	background-color: $blue;
-	padding: 40px 0 0;
+	padding: 40px 0;
 	text-align: center;
+
+	@include media($smaller-screen-up) {
+		padding-bottom: 0;
+	}
 }
 
 .home-welcome .widgettitle {
@@ -76,81 +47,126 @@ Widgets
 
 .home-announce .wrap {
 	background-color: $light-blue;
-	border-radius: $border-radius;
-	padding: 20px !important;
+	border-radius: $border-radius ;
 	width: $wrap-max-width-large;
+
+	@include media($smaller-screen-up) {
+		padding: 30px 80px !important;
+	}
+
 }
 
-.home-announce .widget .widgettitle {
-	border-bottom: 2px solid $medium-grey;
+.home-announce h4.widgettitle {
 	color: $blue;
+	font-size: $h4-font-size;
 	font-weight: 400;
 	letter-spacing: 2px;
+	margin: 0;
 	padding: 10px 0;
 	text-align: center;
 }
 
-.home-announce .widget:nth-of-type(2) .widget-title,
-.home-announce .widget:nth-of-type(3) .widget-title {
-	border-bottom: 0;
-	color: $green !important;
-	font-size: $widget-title-size;
-	letter-spacing: 0;
-	margin-top: 0;
-	padding: 0;
-	text-align: left;
-	text-transform: uppercase;
+.home-announce .hr {
+	background: rgba(135, 179, 199, 0.4);
+	height: 5px;
+	margin: 0 auto 25px auto;
+	width: 60%;
 }
 
-@include media($medium-screen-up) {
-
-	.home-announce .widget:nth-of-type(2) {
-		@include span-columns(5);
-	}
-
-	.home-announce .widget:nth-of-type(3) {
-		@include span-columns(7);
-	}
-
+.announce-podcast-date {
+	color: $green;
+	font-family: $base-font-family;
+	font-size: $box-title-size;
+	font-weight: 700;
+	line-height: normal;
 }
 
+.announce-podcast-title {
+	font-family: $base-font-family;
+	color: $blue;
+	font-weight: 700;
+	line-height: normal;
+	margin-bottom: 8px;
 
+	@include media($small-screen-up) {
+		line-height: 1.1;
+	}
+}
 
-/* Home Optin
+/* Home Optin & Utility Bar
 --------------------------------------------- */
+
+
+.utility-bar {
+	background-color: $green;
+	color: $white;
+	font-size: $secondary-font-size;
+	margin: 0 auto;
+	padding: 40px 0 0;
+	width: 100%;
+}
+
+.utility-bar .wrap {
+	max-width: $base-wrap-max-width;
+}
+
+.utility-bar a {
+	color: $white;
+}
+
+.utility-bar a:hover {
+	border-bottom: 0;
+}
+
+.utility-bar p,
+.utility-bar .widgettitle {
+	color: $white;
+	margin: 0;
+}
 
 .home-optin {
 	background: $blue;
 	font-size: $secondary-font-size;
+	position: relative;
+	padding: 0 0 40px 0;
 }
 
 .home-optin .wrap {
 	background: $green;
-	border-radius: $border-radius;
-	height: 80px;
-	padding: 40px 0 20px;
+	border-radius: 0 0 $border-radius $border-radius;
+	padding: 40px 0 0;
 	width: $base-wrap-max-width;
+
+	@include media($small-screen-up) {
+		min-height: 120px;
+	}
+
 }
 
 .home-optin .widget {
 	color: $white;
 	padding: 0 20px;
-	text-align: center;
 }
 
+.utility-bar .enews-widget p,
 .home-optin .enews-widget p {
 	margin-bottom: 12px;
 }
 
+.utility-bar .enews-widget .widgettitle,
 .home-optin .enews-widget .widgettitle {
 	font-family: $heading-alt-font-family;
 	font-size: $secondary-font-size;
-	text-transform: none;
+	text-transform: uppercase;
 }
+
+.utility-bar form,
 .home-optin form {
 	display: inline;
 }
 
+.utility-bar .enews-widget input[type="submit"],
+.utility-bar .enews input[type="email"],
 .home-optin .enews-widget input[type="submit"],
 .home-optin .enews input[type="email"] {
 	border-radius: $form-border-radius;
@@ -160,27 +176,37 @@ Widgets
 	width: auto;
 }
 
+.utility-bar input[type="submit"],
+.home-optin input[type="submit"] {
+	$background-color: $white;
+}
+
 @include media($small-screen-up) {
 
+	.utility-bar .enews-widget .widgettitle,
 	.home-optin .enews-widget .widgettitle {
 		float: left;
 	}
 
+	.utility-bar .enews-widget p,
 	.home-optin .enews-widget p {
 		clear: left;
 	}
 
+	.utility-bar .enews-widget input[type="submit"],
 	.home-optin .enews-widget input[type="submit"] {
 		float: right;
 	}
 
+	.utility-bar .enews form,
 	.home-optin .enews form {
 		float: right;
 		position: relative;
 		text-align: right;
-		top: -55px;
+		top: -50px;
 	}
 
+	.utility-bar .enews input[type="email"],
 	.home-optin .enews input[type="email"] {
 		margin-right: 3px;
 	}

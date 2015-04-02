@@ -76,41 +76,39 @@ function podcast_pro_add_home_welcome() {
 // Display content for the "Home Announce" section
 function podcast_pro_add_home_announce() {
 
-	genesis_widget_area( 'home-announce',
-		array(
-			'before' => '<div class="home-announce"><div class="wrap">',
-			'after' => '</div></div>',
-		)
-	);
+
 
 	echo '<div class="home-announce"><div class="wrap">';
 
-		// Bring in featured image
-		echo '<div class="one-third first">';
+		echo '<h4 class="widgettitle">Next Episode</h4>';
+		echo '<div class="hr"></div>';
 
-		echo '</div>';
+		global $post;
+		$args = array(
+			'posts_per_page'   => 1,
+			'orderby'          => 'post_date',
+			'order'            => 'DESC',
+			'post_type'        => 'podcast',
+		);
+		$podcasts = get_posts( $args );
 
-		// Bring in episode info
-		echo '<div class="two-thirds">';
+		foreach ( $podcasts as $post ) {
+			setup_postdata( $post );
 
-			global $post;
-			$args = array(
-				'posts_per_page'   => 1,
-				'orderby'          => 'post_date',
-				'order'            => 'DESC',
-				'post_type'        => 'podcast',
-			);
-			$podcasts = get_posts( $args );
+			// Bring in featured image
+			echo '<div class="one-third first"><div class="podcast-image">';
+				podcast_pro_podcast_image();
+			echo '</div></div>';
 
-				foreach ( $podcasts as $post ) {
-					setup_postdata( $post );
+			// Bring in episode info
+			echo '<div class="two-thirds">';
 
-					echo '<div class="announce-podcast-date">' . podcast_pro_get_the_air_date() . ' at ' . podcast_pro_get_the_air_time() . '</div>';
-					echo '<p class="announce-podcast-title">' . get_the_title() . '</p>';
+			echo '<div class="announce-podcast-date">' . podcast_pro_get_the_air_date() . ' at ' . podcast_pro_get_the_air_time() . '</div>';
+			echo '<p class="announce-podcast-title">' . get_the_title() . '</p>';
+			echo '<p>' . get_the_excerpt() . '</p>';
+		}
 
-				}
-
-			wp_reset_postdata();
+		wp_reset_postdata();
 
 		echo '</div>';
 

@@ -70,6 +70,11 @@ function podcast_pro_post_pagination() {
 	}
 }
 
+function custom_excerpt_length( $length ) {
+ return 20;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
 add_action( 'init', 'create_post_type' );
 function create_post_type() {
   register_post_type( 'podcast',
