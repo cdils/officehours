@@ -140,7 +140,7 @@ add_filter( 'genesis_footer_creds_text', 'podcast_pro_footer_creds' );
  */
 function podcast_pro_footer_creds( $creds ) {
 
-	return '[footer_copyright first="2015 CWD Holdings LLC"]<br /><a href="http://www.carriedils.com/rainmaker/">Powered by Rainmaker</a>';
+	return '[footer_copyright first="2015 CWD Holdings LLC"]<br /><a href="http://www.carriedils.com/go/siteground/">Hosted on Siteground</a>';
 }
 
 add_filter( 'genesis_author_box_gravatar_size', 'podcast_pro_author_box_gravatar_size' );
@@ -154,6 +154,16 @@ add_filter( 'genesis_author_box_gravatar_size', 'podcast_pro_author_box_gravatar
 function podcast_pro_author_box_gravatar_size( $size ) {
 	return 96;
 }
+
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+/**
+ * Add custom excerpt length.
+ *
+ */
+function custom_excerpt_length( $length ) {
+ return 30;
+}
+
 
 // Add theme widget areas
 include get_stylesheet_directory() . '/includes/widget-areas.php';

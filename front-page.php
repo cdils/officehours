@@ -76,8 +76,6 @@ function podcast_pro_add_home_welcome() {
 // Display content for the "Home Announce" section
 function podcast_pro_add_home_announce() {
 
-
-
 	echo '<div class="home-announce"><div class="wrap">';
 
 		echo '<h4 class="widgettitle">Next Episode</h4>';
@@ -104,8 +102,9 @@ function podcast_pro_add_home_announce() {
 			echo '<div class="two-thirds">';
 
 			echo '<div class="announce-podcast-date">' . podcast_pro_get_the_air_date() . ' at ' . podcast_pro_get_the_air_time() . '</div>';
-			echo '<p class="announce-podcast-title">' . get_the_title() . '</p>';
-			echo '<p>' . get_the_excerpt() . '</p>';
+			echo '<p class="announce-podcast-title"><a href="' . get_permalink() . '">' . get_the_title() . '</a></p>';
+			echo '<p>' . get_the_excerpt(). '</p>';
+			echo '<p><a href="' . get_permalink() . '" class="button">Watch It</a></p>';
 		}
 
 		wp_reset_postdata();

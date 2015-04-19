@@ -199,15 +199,41 @@ Content Area
 }
 
 .content-box-green,
-.content-box-blue,
-.sponsor-box {
+.content-box-blue {
 	background-color: $light-blue;
 	padding: 40px;
 }
 
 .transcript-box {
 	background-color: $light-grey;
+	font-size: $secondary-font-size;
 	padding: 40px;
+}
+
+.sponsor {
+	position: relative;
+}
+
+.sponsor .sponsor-box-label {
+    text-transform: uppercase;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.sponsor .thumbnail {
+    width: 40%;
+    float: left;
+    display: block;
+}
+
+.sponsor .sponsor-box {
+    width: 60%;
+    float: right;
+    display: block;
+    font-size: $secondary-font-size;
+    padding: 5%;
+    text-align: left;
 }
 
 /* Featured Image
