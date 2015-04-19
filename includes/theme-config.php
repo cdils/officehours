@@ -69,28 +69,3 @@ function podcast_pro_post_pagination() {
 		the_posts_navigation( $args );
 	}
 }
-
-/**
- * Create podcast post type.
- */
-add_action( 'init', 'create_post_type' );
-function create_post_type() {
-
-	// Podcast custom post type
-	register_post_type( 'podcast',
-		array(
-			'labels' => array(
-				'name'          => __( 'Podcast' ),
-				'singular_name' => __( 'Podcast' ),
-			),
-			'exclude_from_search' => true,
-			'has_archive'         => true,
-			'hierarchical'        => true,
-			'menu_icon'           => 'dashicons-video-alt3',
-			'public'              => true,
-			'rewrite'             => array( 'slug' => 'podcast' ),
-			'supports'            => array( 'title', 'editor', 'thumbnail', 'comments', 'custom-fields', 'genesis-seo', 'genesis-cpt-archives-settings' ),
-		)
-	);
-
-}

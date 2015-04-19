@@ -78,10 +78,10 @@ function podcast_pro_setup() {
 	add_filter( 'the_content', 'podcast_pro_featured_image' );
 
 	// Remove Genesis archive pagination (Genesis pagination settings still apply)
-	remove_action( 'genesis_after_endwhile', 'genesis_posts_nav' );
+	//remove_action( 'genesis_after_endwhile', 'genesis_posts_nav' );
 
 	// Add WordPress archive pagination (accessibility)
-	add_action( 'genesis_after_endwhile', 'podcast_pro_post_pagination' );
+	//add_action( 'genesis_after_endwhile', 'podcast_pro_post_pagination' );
 
 	// Load skip links (accessibility)
 	include get_stylesheet_directory() . '/includes/skip-links.php';
@@ -140,7 +140,7 @@ add_filter( 'genesis_footer_creds_text', 'podcast_pro_footer_creds' );
  */
 function podcast_pro_footer_creds( $creds ) {
 
-	return '[footer_copyright first="2015 CWD Holdings LLC"]<br /><a href="http://www.carriedils.com/go/siteground/">Hosted on Siteground</a>';
+	return '[footer_copyright first="CWD Holdings LLC"]<br /><a href="http://www.carriedils.com/go/siteground/">Hosted on Siteground</a>';
 }
 
 add_filter( 'genesis_author_box_gravatar_size', 'podcast_pro_author_box_gravatar_size' );
