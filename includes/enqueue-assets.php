@@ -17,9 +17,6 @@ add_action( 'wp_enqueue_scripts', 'podcast_pro_enqueue_assets' );
  */
 function podcast_pro_enqueue_assets() {
 
-	// Replace style.css with style-rtl.css for RTL languages
-	wp_style_add_data( 'podcast-pro', 'rtl', 'replace' );
-
 	// Load mobile responsive menu
 	wp_enqueue_script( 'podcast-pro-responsive-menu', get_stylesheet_directory_uri() . '/js/responsive-menu.js', array( 'jquery' ), '1.0.0', true );
 
