@@ -109,3 +109,16 @@ function cd_cpt_search( $query ) {
     return $query;
 
 }
+
+/**
+ * Change post meta based on custom post type
+ *
+ */
+function cd_post_meta_filter( $post_meta ) {
+
+	if ( 'podcast' == get_post_type() ) {
+		$post_meta = '[post_terms before="Keywords: " taxonomy="keywords"]';
+	}
+
+	return $post_meta;
+}

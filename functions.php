@@ -92,6 +92,10 @@ function podcast_pro_setup() {
 	// Include custom post types in search results
 	add_filter( 'pre_get_posts', 'cd_cpt_search' );
 
+	// Customize the post meta function
+	add_filter( 'genesis_post_meta', 'cd_post_meta_filter' );
+
+
 }
 
 /**
