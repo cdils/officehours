@@ -77,17 +77,20 @@ function podcast_pro_setup() {
 	// Add featured image above posts
 	add_filter( 'the_content', 'podcast_pro_featured_image' );
 
-	// Remove Genesis archive pagination (Genesis pagination settings still apply)
-	//remove_action( 'genesis_after_endwhile', 'genesis_posts_nav' );
+	//Remove Genesis archive pagination (Genesis pagination settings still apply)
+	remove_action( 'genesis_after_endwhile', 'genesis_posts_nav' );
 
 	// Add WordPress archive pagination (accessibility)
-	//add_action( 'genesis_after_endwhile', 'podcast_pro_post_pagination' );
+	add_action( 'genesis_after_endwhile', 'podcast_pro_post_pagination' );
 
 	// Load skip links (accessibility)
 	include get_stylesheet_directory() . '/includes/skip-links.php';
 
 	// Apply search form enhancements (accessibility)
 	add_filter( 'get_search_form', 'podcast_pro_get_search_form', 25 );
+
+	// Include custom post types in search results
+	add_filter( 'pre_get_posts', 'cd_cpt_search' );
 
 }
 

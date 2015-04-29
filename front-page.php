@@ -138,49 +138,4 @@ function podcast_pro_add_home_optin() {
 	);
 }
 
-/** Display the "podcasts" section. */
-function podcast_pro_archive_loop() {
-	global $post;
-	$args = array(
-		'posts_per_page'   => 6,
-		'orderby'          => 'post_date',
-		'order'            => 'DESC',
-		'post_type'        => 'podcast',
-	);
-	$podcasts = get_posts( $args );
-
-	$counter = 0;
-
-	echo '<div class="list-podcasts">';
-		echo '<div class="wrap">';
-			foreach ( $podcasts as $post ) {
-				setup_postdata( $post );
-				$counter++;
-
-				echo sprintf( '<article class="%s">', implode( ' ', get_post_class() ) );
-
-					// Print Episode Number
-					echo '<div class="one-sixth first">';
-					printf( '<a href="%s" class="episode-count"><span class="episode">Episode</span>%s</a>', get_permalink(), basename( get_permalink() ) );
-					echo '</div>';
-
-					// Print Episode Title & Meta
-					echo '<div class="five-sixths episode-detail">';
-					echo '<header class="entry-header">';
-						printf( '<h4 class="episode-title"><a href="%s" title="%s">%s</a></h4>', get_permalink(), the_title_attribute( 'echo=0' ), get_the_title() );
-					echo '</header>';
-
-					echo '<p class="entry-meta">';
-						echo podcast_pro_podcast_date_info();
-						echo podcast_pro_get_guests();
-					echo '</p>';
-					echo '</div>';
-
-			 	echo '</article>';
-			}
-		echo '</div>';
-	echo '</div>';
-	wp_reset_postdata();
-}
-
 genesis();

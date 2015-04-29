@@ -24,6 +24,27 @@ function podcast_pro_remove_genesis_page_templates( $page_templates ) {
 	return $page_templates;
 }
 
+
+add_action( 'pre_get_posts', 'cd_sort_podcasts' );
+/**
+ * Sort Podcast CPT by date in admin
+ *
+ */
+function cd_sort_podcasts( $wp_query ) {
+
+  if ( is_admin() ) {
+
+  	// Get the post type from the query
+  	$post_type = $wp_query->query[ 'post_type' ];
+
+  	// If  it's the podcast post type, order by date desc
+    if ( 'podcast' == $post_type ) {
+      $wp_query->set( 'orderby', 'date' );
+      $wp_query->set( 'order', 'DESC' );
+    }
+  }
+}
+
 // Remove comment form allowed tags
 add_filter( 'comment_form_defaults', 'podcast_pro_remove_comment_form_allowed_tags' );
 function podcast_pro_remove_comment_form_allowed_tags( $defaults ) {
@@ -68,4 +89,23 @@ function podcast_pro_post_pagination() {
 	} else {
 		the_posts_navigation( $args );
 	}
+}
+
+/**
+ * This function modifies the main WordPress query to include an array of
+ * post types instead of the default 'post' post type.
+ *
+ * h/t Thomas Griffin (https://gist.github.com/thomasgriffin/4159035/)
+ *
+ * @param object $query  The original query.
+ * @return object $query The amended query.
+ */
+function cd_cpt_search( $query ) {
+
+    if ( $query->is_search ) {
+		$query->set( 'post_type', array( 'podcast' ) );
+    }
+
+    return $query;
+
 }
