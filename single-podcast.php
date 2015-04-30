@@ -56,7 +56,7 @@ function show_sponsors() {
 				// Don't filter the content. Keep original markup
 				$content = $my_connected_post->post_content;
 				$content = apply_filters( 'the_content', $my_connected_post->post_content );
-				$content = str_replace( ']]>', ']]&gt;', $content );
+				//$content = str_replace( ']]>', ']]&gt;', $content );
 
 				echo '<div class="sponsor-summary"><div class="sponsor-content">';
 					echo $content;
