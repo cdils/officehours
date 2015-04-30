@@ -44,6 +44,11 @@ function podcast_pro_register_widget_areas() {
 			'name'        => __( 'Call to Action', 'podcast-pro' ),
 			'description' => __( 'This is the Call to Action section on the home page.', 'podcast-pro' ),
 		),
+		array(
+			'id'          => 'podcast-sidebar',
+			'name'        => __( 'Podcast Sidebar', 'podcast-pro-sidebar' ),
+			'description' => __( 'This is the Sidebar that appears on Podcast posts.', 'podcast-pro' ),
+		),
 	);
 
 	$widget_areas = apply_filters( 'podcast_pro_default_widget_areas', $widget_areas );

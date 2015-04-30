@@ -2088,7 +2088,7 @@ Content Area
   display: block;
 }
 
-/* Archives
+/* Podcasts
 --------------------------------------------- */
 .list-podcasts article {
   text-align: center;
@@ -2188,25 +2188,16 @@ Content Area
   border-bottom: 1px solid #7d7d7d;
   border-right: 1px solid #7d7d7d;
   font-size: 14px;
-  left: 0px;
+  left: 0;
   line-height: normal;
   padding: 0 1%;
   position: absolute;
-  top: 0px;
+  top: 0;
   text-transform: uppercase;
 }
 
 .episode-sponsor-box .sponsor-thumbnail {
-  display: block;
   line-height: 0;
-  float: left;
-  width: 30%;
-}
-
-.episode-sponsor-box .sponsor-summary {
-  width: 70%;
-  float: right;
-  display: block;
 }
 
 .episode-sponsor-box .sponsor-content {

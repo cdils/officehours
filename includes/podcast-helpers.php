@@ -185,3 +185,4 @@ function podcast_pro_archive_loop() {
 	echo '</div>';
 	wp_reset_postdata();
 }
+
