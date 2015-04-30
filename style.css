@@ -2165,31 +2165,50 @@ Content Area
 
 .transcript-box {
   background-color: #f2f6f8;
-  font-size: 16px;
-  padding: 40px;
+  border-color: #7d7d7d;
+  font-size: 14px;
+  margin-bottom: 40px;
+  padding: 5%;
 }
 
-.sponsor {
+.episode-sponsor-box {
+  border: 1px solid #7d7d7d;
+  margin-bottom: 20px;
+  overflow: hidden;
   position: relative;
 }
 
-.sponsor .sponsor-box-label {
-  text-transform: uppercase;
+.episode-sponsor-box a {
+  border-bottom: 0;
+}
+
+.episode-sponsor-box .sponsor-box-label {
+  background-color: #fff;
+  border-bottom: 1px solid #7d7d7d;
+  border-right: 1px solid #7d7d7d;
+  font-size: 14px;
+  left: 0px;
+  line-height: normal;
+  padding: 0 1%;
   position: absolute;
   top: 0px;
-  left: 0px;
+  text-transform: uppercase;
 }
 
-.sponsor .thumbnail {
-  width: 40%;
-  float: left;
+.episode-sponsor-box .sponsor-thumbnail {
   display: block;
+  line-height: 0;
+  float: left;
+  width: 40%;
 }
 
-.sponsor .sponsor-box {
+.episode-sponsor-box .sponsor-summary {
   width: 60%;
   float: right;
   display: block;
+}
+
+.episode-sponsor-box .sponsor-content {
   font-size: 16px;
   padding: 5%;
   text-align: left;

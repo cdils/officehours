@@ -206,34 +206,53 @@ Content Area
 
 .transcript-box {
 	background-color: $light-grey;
-	font-size: $secondary-font-size;
-	padding: 40px;
+	border-color: $medium-grey;
+	font-size: $tertiary-font-size;
+	margin-bottom: 40px;
+	padding: 5%;
 }
 
-.sponsor {
+.episode-sponsor-box  {
+	border: 1px solid $medium-grey;
+	margin-bottom: 20px;
+	overflow: hidden;
 	position: relative;
 }
 
-.sponsor .sponsor-box-label {
-    text-transform: uppercase;
+.episode-sponsor-box a {
+	border-bottom: 0;
+}
+
+.episode-sponsor-box .sponsor-box-label {
+	background-color: $white;
+	border-bottom: 1px solid $medium-grey;
+	border-right: 1px solid $medium-grey;
+	font-size: $tertiary-font-size;
+    left: 0px;
+    line-height: normal;
+    padding: 0 1%;
     position: absolute;
     top: 0px;
-    left: 0px;
+    text-transform: uppercase;
 }
 
-.sponsor .thumbnail {
-    width: 40%;
-    float: left;
+.episode-sponsor-box .sponsor-thumbnail {
     display: block;
+    line-height: 0;
+    float: left;
+    width: 40%;
 }
 
-.sponsor .sponsor-box {
+.episode-sponsor-box .sponsor-summary {
     width: 60%;
     float: right;
     display: block;
-    font-size: $secondary-font-size;
-    padding: 5%;
-    text-align: left;
+}
+
+.episode-sponsor-box .sponsor-content {
+	font-size: $secondary-font-size;
+	padding: 5%;
+	text-align: left;
 }
 
 /* Featured Image

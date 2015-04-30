@@ -92,25 +92,6 @@ function podcast_pro_post_pagination() {
 }
 
 /**
- * This function modifies the main WordPress query to include an array of
- * post types instead of the default 'post' post type.
- *
- * h/t Thomas Griffin (https://gist.github.com/thomasgriffin/4159035/)
- *
- * @param object $query  The original query.
- * @return object $query The amended query.
- */
-function cd_cpt_search( $query ) {
-
-    if ( $query->is_search ) {
-		$query->set( 'post_type', array( 'podcast' ) );
-    }
-
-    return $query;
-
-}
-
-/**
  * Change post meta based on custom post type
  *
  */
