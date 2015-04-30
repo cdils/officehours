@@ -5,7 +5,7 @@
 
 
 // Use a custom sidebar
-remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
+//remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
 add_action( 'genesis_sidebar', 'podcast_pro_get_podcast_sidebar' );
 function podcast_pro_get_podcast_sidebar(){
 	get_sidebar( 'podcast' );

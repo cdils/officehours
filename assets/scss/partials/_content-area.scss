@@ -214,10 +214,12 @@ Content Area
 
 .episode-sponsor-box  {
 	border: 1px solid $medium-grey;
+	float: right;
 	font-size: $tertiary-font-size;
 	margin-bottom: 20px;
 	overflow: hidden;
 	position: relative;
+	width: 336px;
 }
 
 .episode-sponsor-box a {
