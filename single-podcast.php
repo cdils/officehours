@@ -54,6 +54,7 @@ function show_sponsors() {
 				echo '</div>'; //end sponsor-thumbnail
 
 				// Don't filter the content. Keep original markup
+				$content = $my_connected_post->post_content;
 				$content = apply_filters( 'the_content', $my_connected_post->post_content );
 				$content = str_replace( ']]>', ']]&gt;', $content );
 
@@ -80,7 +81,7 @@ add_action ( 'genesis_after_entry', 'show_transcript' );
 function show_transcript() {
 
 	// Get the connected posts
-	$my_connected_posts = Post_Connector::API()->get_children( 'podcast-transripts', get_the_id() );
+	$my_connected_posts = Post_Connector::API()->get_children( 'podcast-transcripts', get_the_id() );
 
 	// Check
 	if ( count( $my_connected_posts ) > 0 ) {

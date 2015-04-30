@@ -2173,6 +2173,7 @@ Content Area
 
 .episode-sponsor-box {
   border: 1px solid #7d7d7d;
+  font-size: 14px;
   margin-bottom: 20px;
   overflow: hidden;
   position: relative;
@@ -2199,11 +2200,11 @@ Content Area
   display: block;
   line-height: 0;
   float: left;
-  width: 40%;
+  width: 30%;
 }
 
 .episode-sponsor-box .sponsor-summary {
-  width: 60%;
+  width: 70%;
   float: right;
   display: block;
 }
