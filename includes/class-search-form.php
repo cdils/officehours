@@ -32,7 +32,7 @@ class podcast_pro_Search_Form {
 			'label'        => apply_filters( 'genesis_search_form_label', __( 'Search site', 'podcast-pro' ) ),
 			// Placeholder should be empty: http://www.nngroup.com/articles/form-design-placeholders/
 			/** This filter is documented in genesis/lib/structure/search.php */
-			'placeholder'  => apply_filters( 'genesis_search_text', __( '', 'podcast-pro' ) ),
+			'placeholder'  => apply_filters( 'genesis_search_text', __( 'Search this site...', 'podcast-pro' ) ),
 			/** This filter is documented in genesis/lib/structure/search.php */
 			'button'       => apply_filters( 'genesis_search_button_text', __( 'Search', 'podcast-pro' ) ),
 			/**

@@ -80,7 +80,6 @@ function podcast_pro_get_search_form() {
  */
 function podcast_pro_post_pagination() {
 	$args = array(
-		'mid_size' => 2,
 		'before_page_number' => '<span class="screen-reader-text">' . __( 'Page', 'podcast-pro' ) . ' </span>',
 	);
 

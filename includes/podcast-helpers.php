@@ -164,7 +164,7 @@ function podcast_pro_archive_loop() {
 
 					// Print Episode Number
 					echo '<div class="one-sixth first">';
-					printf( '<a href="%s" class="episode-count"><span class="episode">Episode</span>%s</a>', get_permalink(), basename( get_permalink() ) );
+					printf( '<a href="%s" class="episode-count"><span class="episode">Episode</span>%s</a>', get_permalink(), basename( str_replace( "-2", "", get_permalink() ) ) );
 					echo '</div>';
 
 					// Print Episode Title & Meta
@@ -185,4 +185,5 @@ function podcast_pro_archive_loop() {
 	echo '</div>';
 	wp_reset_postdata();
 }
+
 
