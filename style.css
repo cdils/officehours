@@ -596,6 +596,7 @@ a.button:focus {
 }
 
 .sidebar a.button {
+  class: #fff;
   font-size: 14px;
 }
 
@@ -2012,12 +2013,8 @@ Content Area
   margin-bottom: 40px;
 }
 
-.entry-content a {
-  color: #ae1a1a;
-}
-
 .entry-content a:hover {
-  color: #2c658a;
+  color: #ae1a1a;
 }
 
 .entry-content .attachment a,
@@ -2142,6 +2139,10 @@ Content Area
   padding-top: 7px;
 }
 
+.episode-extras {
+  display: block;
+}
+
 .episode-guest {
   font-size: 14px;
 }
@@ -2177,9 +2178,8 @@ Content Area
 
 .episode-sponsor-box {
   border: 1px solid #7d7d7d;
-  float: right;
   font-size: 14px;
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
   overflow: hidden;
   position: relative;
   width: 336px;

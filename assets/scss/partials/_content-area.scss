@@ -46,12 +46,8 @@ Content Area
 	margin-bottom: 40px;
 }
 
-.entry-content a {
-	color: $red;
-}
-
 .entry-content a:hover {
-	color: $blue;
+	color: $red;
 }
 
 .entry-content .attachment a,
@@ -179,6 +175,10 @@ Content Area
 	padding-top: 7px;
 }
 
+.episode-extras {
+	display: block;
+}
+
 .episode-guest {
 	font-size: $post-meta;
 }
@@ -214,12 +214,15 @@ Content Area
 
 .episode-sponsor-box  {
 	border: 1px solid $medium-grey;
-	float: right;
 	font-size: $tertiary-font-size;
-	margin-bottom: 20px;
+	margin: 0 auto 20px;
 	overflow: hidden;
 	position: relative;
 	width: 336px;
+
+	@include media($small-screen-up) {
+
+	}
 }
 
 .episode-sponsor-box a {

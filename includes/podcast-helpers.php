@@ -1,17 +1,22 @@
 <?php
 
 // Customize the post info for podcasts
-add_filter( 'genesis_post_info', 'podcast_pro_post_info_filter', 25 );
+add_filter( 'genesis_post_info', 'podcast_pro_post_info_filter' );
 function podcast_pro_post_info_filter( $post_info ) {
 
-	// Check to see if there's a custom field for speaker_title
-	if ( ! genesis_get_custom_field( 'air_date' ) ) {
-		return;
-	}
+	$post_info = podcast_pro_podcast_date_info() . ' ' . podcast_pro_get_guests();
+	$post_info .= '<span class="episode-extras">' . podcast_pro_get_transcript() . ' [post_comments  zero="Join the Discussion" one="1 Comment" more="% Comments"]</span>';
 
-	$post_info = podcast_pro_podcast_date_info();
 	return $post_info;
 }
+
+// Customize the post meta for podcasts
+add_filter( 'genesis_post_meta', 'podcast_pro_post_meta_filter', 25 );
+function podcast_pro_post_meta_filter( $post_meta ) {
+	$post_meta = '[post_categories before="Filed Under: "] [post_tags before="Tagged: "]';
+	return $post_meta;
+}
+
 
 /**
  * Displays information about the podcast's air date including the date, time,
@@ -65,7 +70,7 @@ function podcast_pro_get_the_air_date() {
 	return $air_date;
 }
 
-// Checks to see the time the podcast aired
+// Get the podcast aired date and extract time (retrieves a custom field)
 function podcast_pro_get_the_air_time() {
 	$date = DateTime::createFromFormat( 'U', genesis_get_custom_field( 'air_date' ) );
 	// Format the date for display.
@@ -74,6 +79,7 @@ function podcast_pro_get_the_air_time() {
 	return $air_time;
 }
 
+// Get the podcast guest (retrieves a custom field)
 function podcast_pro_get_guests() {
 
 	// Do nothing if the post has no guest.
@@ -81,17 +87,29 @@ function podcast_pro_get_guests() {
 		return;
 	}
 
-	$podcast_guests = '<p class="episode-guest">';
+	$podcast_guests = '<span class="episode-guest">';
 
-	$podcast_guests .= 'With ' . genesis_get_custom_field( 'guest1' );
+	$podcast_guests .= 'with ' . genesis_get_custom_field( 'guest1' );
 
 	if ( genesis_get_custom_field( 'guest2' ) ) {
 		$podcast_guests .= ' and ' . genesis_get_custom_field( 'guest2' );
 	}
 
-	$podcast_guests .= '</p>';
+	$podcast_guests .= '</span>';
 
 	return $podcast_guests;
+}
+
+// Get the podcast transcript (retrieves a custom field)
+function podcast_pro_get_transcript() {
+
+	// Do nothing if the post has no transcript
+	if ( ! $podcast_connected_posts = Post_Connector::API()->get_children( 'podcast-transcripts', get_the_id() ) ) {
+		return;
+	}
+
+	$podcast_transcript = '<span class="episode-transcript"><a href="#transcript">View Transcript</a></span>';
+	return $podcast_transcript;
 }
 
 /**
@@ -144,11 +162,13 @@ function podcast_pro_the_promo_image() {
 function podcast_pro_archive_loop() {
 
 	global $post;
+
 	$args = array(
-		'posts_per_page'   => 10,
 		'orderby'          => 'post_date',
 		'order'            => 'DESC',
+		'paged'			   => get_query_var( 'paged' ),
 		'post_type'        => 'podcast',
+		'posts_per_page'   => 10,
 	);
 	$podcasts = get_posts( $args );
 
@@ -156,6 +176,7 @@ function podcast_pro_archive_loop() {
 
 	echo '<div class="list-podcasts">';
 		echo '<div class="wrap">';
+
 			foreach ( $podcasts as $post ) {
 				setup_postdata( $post );
 				$counter++;
@@ -175,15 +196,16 @@ function podcast_pro_archive_loop() {
 
 					echo '<p class="entry-meta">';
 						echo podcast_pro_podcast_date_info();
-						echo podcast_pro_get_guests();
+						echo ' ' . podcast_pro_get_guests();
+						//echo '<p><a href="' . get_permalink() . '#transcript' . '">View Transcript</a></p>';
 					echo '</p>';
 					echo '</div>';
 
 			 	echo '</article>';
-			}
+			 }
 		echo '</div>';
 	echo '</div>';
+
+	do_action( 'genesis_after_endwhile' );
 	wp_reset_postdata();
 }
-
-
