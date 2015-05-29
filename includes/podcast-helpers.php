@@ -10,13 +10,19 @@ function podcast_pro_post_info_filter( $post_info ) {
 	return $post_info;
 }
 
-// Customize the post meta for podcasts
-add_filter( 'genesis_post_meta', 'podcast_pro_post_meta_filter', 25 );
-function podcast_pro_post_meta_filter( $post_meta ) {
-	$post_meta = '[post_categories before="Filed Under: "] [post_tags before="Tagged: "]';
+add_filter( 'genesis_post_meta', 'cd_post_meta_filter' );
+/**
+ * Customize the post meta for podcasts
+ *
+ */
+function cd_post_meta_filter( $post_meta ) {
+
+	if ( 'podcast' == get_post_type() ) {
+		$post_meta = '[post_terms before="Tagged with: " taxonomy="keywords"]';
+	}
+
 	return $post_meta;
 }
-
 
 /**
  * Displays information about the podcast's air date including the date, time,
